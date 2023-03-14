@@ -1,0 +1,121 @@
+@import "./base.scss";
+
+header {
+  position: sticky;
+  top: 0;
+  background: var(--fourth-color) !important;
+  height: 50px;
+  width: 100vw;
+  z-index: 100000;
+  box-shadow: 0 0 5px rgba($color: $fourth-color, $alpha: 0.7);
+  .primary-nav {
+    position: relative;
+    height: 100%;
+    justify-content: space-between;
+    .logo-box {
+      a {
+        img {
+          width: 130px;
+        }
+      }
+    }
+    .nav-links {
+      position: relative;
+      height: 100%;
+      width: 60%;
+      ul {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        li {
+          a {
+            position: relative;
+            color: #dbdbdb;
+            &:after {
+              position: absolute;
+              content: "";
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0;
+              height: 2px;
+              transition: 0.2s;
+              background: #fff;
+              border-radius: 24px;
+            }
+            &:hover,
+            &.active {
+              color: #ffffff !important;
+              &:after {
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.secondary-nav {
+  display: none;
+}
+@media screen and (max-width: 575px) {
+  header {
+    position: relative;
+  }
+  .primary-nav {
+    .nav-links {
+      display: none;
+    }
+  }
+  .secondary-nav {
+    display: inherit;
+    background: var(--third-color);
+    width: 100%;
+    height: 50px;
+    ul {
+      justify-content: space-around;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      li {
+        position: relative;
+        ion-icon {
+          font-size: 30px;
+          color: var(--fourth-color);
+          transition: 0.5s;
+          position: relative;
+          z-index: 5;
+        }
+        a {
+          &.active {
+            ion-icon {
+              color: var(--third-color);
+              transform: translateY(-20px);
+            }
+          }
+          &.active + .indicator {
+            opacity: 1;
+            transform: translate(-10px, -28px);
+            box-shadow: 0 0 0 3px rgba($color: $fourth-color, $alpha: 0.5),
+              0 0 0 6px rgba($color: $fourth-color, $alpha: 0.3);
+          }
+        }
+      }
+      .indicator {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        opacity: 0;
+        pointer-events: none;
+        width: 50px;
+        height: 50px;
+        background: var(--fourth-color);
+        border-radius: 50%;
+        transition: transform 0.5s, opacity 1s;
+        transform: translate(-20px, 80px);
+      }
+    }
+  }
+}
