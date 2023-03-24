@@ -1,4 +1,5 @@
 @import "./base.scss";
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -138,6 +139,7 @@
     }
   }
 }
+
 @media screen and (min-width: 576px) and (max-width: 992px) {
   .hero-section {
     .texts {
